@@ -1,0 +1,10 @@
+*** Settings ***
+Library           SSHLibrary
+
+*** Test Cases ***
+Polaczenie
+    ${index}    Open Connection    46.101.195.218
+    ${output}    login    studentwsb    lubieStudia@#
+    @{files}    list files in directory    .
+    ${zawartosc}    Execute Command    cat sprawdz_ten_plik
+    Should Contain    ${zawartosc}    Lubie testotwac
